@@ -1,0 +1,17 @@
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+  application:
+    name: user-service
+  profiles:
+    active: product
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      config:
+        file-extension: yaml
+        shared-configs:
+          - data-id: nacosTest-${spring.profiles.active}.yml
+            refresh: true
+        refresh-enabled: true
